@@ -1,0 +1,26 @@
+.main {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+
+    transition: transform 3.7s ease;
+  }
+}
+
+.section {
+  min-width: 100vw;
+  max-width: 100vw;
+}
+
+.sections {
+  display: flex;
+  transition: transform 1s ease;
+}
