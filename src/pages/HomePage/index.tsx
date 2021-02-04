@@ -11,7 +11,7 @@ import styles from './home.module.scss';
 import bgHigh from 'shared/assets/images/background-high.jpg';
 import bgLow from 'shared/assets/images/background-low.jpg';
 
-const sections = [Section1, Section2, Section3];
+const sections = [Section1, Section2, Section3]; // Extendable with new Section components
 
 const Sections: React.FC<{sections: any, ref: any}> = React.forwardRef(({ sections }, ref: any) => {
   return (
@@ -28,10 +28,6 @@ const HomePage: React.FC = () => {
   const sectionRef = useRef(null);
   const bg = useImageLoad(bgHigh, bgLow); // the background image
 
-  function handleSwitchSection() {
-    setSection((section + 1) % sections.length);
-  }
-
   useEffect(() => {
     // @ts-ignore
     sectionRef.current.style.transform = `translateX(-${section * 100}vw)`;
@@ -43,16 +39,14 @@ const HomePage: React.FC = () => {
   }, [section]);
 
   return (
-    <div className={styles.main} ref={pageContainerRef} onClick={handleSwitchSection}>
+    <div className={styles.main} ref={pageContainerRef}>
       <img
         alt='bg'
         src={bg.current}
         className={styles.main__background}
         ref={backgroundImgRef} />
-
       <Sections sections={sections} ref={sectionRef} />
-
-      <Slider slides={sections.length} current={section} />
+      <Slider slides={sections.length} current={section} setSection={setSection} />
     </div>
   );
 }

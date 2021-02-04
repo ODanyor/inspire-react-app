@@ -22,7 +22,7 @@ const WithInterface: React.FC = ({ children }) => {
       {children}
 
       <div className='interface__section interface__footer flex-beetwen'>
-        <span>© 2020 by doniyor-git.web.app</span>
+        <span>© 2021 by doniyor-git.web.app</span>
       </div>
     </React.Fragment>
   );
