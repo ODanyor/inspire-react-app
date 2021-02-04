@@ -1,10 +1,18 @@
 import React from 'react';
-import { Link } from 'shared/components';
+import { useHandleValue } from 'shared/hooks';
+
+import { Link, Menu } from 'shared/components';
 
 import './styles.scss';
 import logo from 'shared/assets/logo.svg';
 
 const WithInterface: React.FC = ({ children }) => {
+  const menuIsOpen = useHandleValue(false);
+
+  function menuToggle () {
+    menuIsOpen.setValue(!menuIsOpen.controls.value);
+  }
+
   return (
     <React.Fragment>
       <div className='interface__section interface__header flex-beetwen'>
@@ -12,7 +20,9 @@ const WithInterface: React.FC = ({ children }) => {
           <img alt='logo' src={logo} height='25px' />
         </Link>
         <div className='flex'>
-          <button className='interface__item interface__burger-button'>
+          <button
+            className='interface__item interface__burger-button'
+            onClick={menuToggle}>
             <div className='interface__burger-button__stick'></div>
             <div className='interface__burger-button__stick'></div>
           </button>

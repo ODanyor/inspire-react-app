@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useImageLoad } from 'shared/hooks';
+import React, { useEffect, useRef } from 'react';
+import { useImageLoad, useHandleValue } from 'shared/hooks';
 
 import Section1 from './Section-1';
 import Section2 from './Section-2';
@@ -11,7 +11,7 @@ import styles from './home.module.scss';
 import bgHigh from 'shared/assets/images/background-high.jpg';
 import bgLow from 'shared/assets/images/background-low.jpg';
 
-const sections = [Section1, Section2, Section3]; // Extendable with new Section components
+const sections = [Section1, Section2, Section3]; // Extendable with new sections wrapped by Section HOC 
 
 const Sections: React.FC<{sections: any, ref: any}> = React.forwardRef(({ sections }, ref: any) => {
   return (
@@ -22,7 +22,7 @@ const Sections: React.FC<{sections: any, ref: any}> = React.forwardRef(({ sectio
 });
 
 const HomePage: React.FC = () => {
-  const [section, setSection] = useState(0);
+  const section = useHandleValue(0);
   const pageContainerRef = useRef(null);
   const backgroundImgRef = useRef(null);
   const sectionRef = useRef(null);
@@ -30,13 +30,13 @@ const HomePage: React.FC = () => {
 
   useEffect(() => {
     // @ts-ignore
-    sectionRef.current.style.transform = `translateX(-${section * 100}vw)`;
+    sectionRef.current.style.transform = `translateX(-${section.controls.value * 100}vw)`;
 
     // @ts-ignore
     backgroundImgRef.current.style.width = sections.length * 100 + 'vw';
     // @ts-ignore
-    backgroundImgRef.current.style.transform = `translateX(-${section * 100}vw)`;
-  }, [section]);
+    backgroundImgRef.current.style.transform = `translateX(-${section.controls.value * 100}vw)`;
+  }, [section.controls.value]);
 
   return (
     <div className={styles.main} ref={pageContainerRef}>
@@ -46,7 +46,7 @@ const HomePage: React.FC = () => {
         className={styles.main__background}
         ref={backgroundImgRef} />
       <Sections sections={sections} ref={sectionRef} />
-      <Slider slides={sections.length} current={section} setSection={setSection} />
+      <Slider slides={sections.length} current={section.controls.value} setSection={section.setValue} />
     </div>
   );
 }

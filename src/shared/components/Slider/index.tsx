@@ -20,7 +20,7 @@ const Slider: React.FC<SliderTypes> = ({ slides, current, setSection }) => {
 
   function renderSwitchers () {
     const switchers = [];
-    while (slides--) switchers.push(<div className='slider__queue'>{slides + 1}</div>);
+    while (slides--) switchers.push(<div key={'slide_' + (slides + 1)} className='slider__queue'>{slides + 1}</div>);
 
     return switchers;
   }

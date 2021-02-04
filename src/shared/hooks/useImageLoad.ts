@@ -1,20 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useHandleValue } from 'shared/hooks';
 
 // @ts-ignore
 const useImageLoad = (src: any, placeholder: any) => {
-  const [loading, setLoading] = useState(true);
-  const [current, setCurrent] = useState(placeholder);
+  const loading = useHandleValue(true);
+  const current = useHandleValue(placeholder);
 
   useEffect(() => {
     const imageToLoad = new Image();
     imageToLoad.src = src;
     imageToLoad.onload = () => {
-      setLoading(false);
-      setCurrent(src);
+      loading.setValue(false);
+      current.setValue(src);
     }
   }, [src]);
 
-  return {loading, current};
+  return {loading: loading.controls.value, current: current.controls.value};
 }
 
 export default useImageLoad;
