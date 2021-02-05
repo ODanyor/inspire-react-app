@@ -1,0 +1,41 @@
+@import '../../assets/styles/mixins'
+@import '../../assets/styles/variables'
+
+.interface
+  position: fixed
+  width: 100%
+  padding: 1rem
+  z-index: 1000
+
+  &__header
+    @include flex-beetwen
+    top: 0
+    left: 0
+
+  &__footer
+    @include flex-beetwen
+    bottom: 0
+    left: 0
+    color: $white
+
+  &__button
+    @include custom-button
+    @include flex-beetwen
+    flex-direction: column
+    height: 14px
+
+    &__stick
+      position: relative;
+      width: 25px
+      height: 5px
+      background-color: $white
+      transition: all 0.3s ease
+
+      &_open
+        @extend .interface__button__stick
+
+        &:first-child
+          transform: rotate(45deg) translate(4px, 2px)
+
+        &:last-child
+          transform: rotate(-45deg) translate(4px, -2px)

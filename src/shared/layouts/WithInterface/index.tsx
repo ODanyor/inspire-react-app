@@ -1,9 +1,9 @@
 import React from 'react';
 import { useHandleValue } from 'shared/hooks';
 
-import { Link, Menu } from 'shared/components';
+import { Link } from 'shared/components';
 
-import './styles.scss';
+import './styles.sass';
 import logo from 'shared/assets/logo.svg';
 
 const WithInterface: React.FC = ({ children }) => {
@@ -15,23 +15,22 @@ const WithInterface: React.FC = ({ children }) => {
 
   return (
     <React.Fragment>
-      <div className='interface__section interface__header flex-beetwen'>
+      <div className='interface interface__header'>
         <Link to='/'>
           <img alt='logo' src={logo} height='25px' />
         </Link>
+        
         <div className='flex'>
-          <button
-            className='interface__item interface__burger-button'
-            onClick={menuToggle}>
-            <div className='interface__burger-button__stick'></div>
-            <div className='interface__burger-button__stick'></div>
+          <button className='interface__button' onClick={menuToggle}>
+            <div className={`interface__button__stick${menuIsOpen.controls.value ? '_open' : ''}`}></div>
+            <div className={`interface__button__stick${menuIsOpen.controls.value ? '_open' : ''}`}></div>
           </button>
         </div>
       </div>
 
       {children}
 
-      <div className='interface__section interface__footer flex-beetwen'>
+      <div className='interface interface__footer'>
         <span>© 2021 by doniyor-git.web.app</span>
       </div>
     </React.Fragment>

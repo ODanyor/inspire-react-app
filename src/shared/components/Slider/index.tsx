@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.scss';
+import './styles.sass';
 
 interface SliderTypes {
   slides: number;
@@ -11,7 +11,7 @@ const Slider: React.FC<SliderTypes> = ({ slides, current, setSection }) => {
   function renderPoints () {
     const points = [];
     for (let i = 0; i < slides; i++) {
-      const point_class = i === current ? 'slider__point slider__point-active' : 'slider__point';
+      const point_class = i === current ? 'slider__point slider__point_active' : 'slider__point';
       points.push(<button key={'point_' + i} className={point_class} onClick={() => setSection(i)} />);
     }
 

@@ -13,10 +13,16 @@ import bgLow from 'shared/assets/images/background-low.jpg';
 
 const sections = [Section1, Section2, Section3]; // Extendable with new sections wrapped by Section HOC 
 
-const Sections: React.FC<{sections: any, ref: any}> = React.forwardRef(({ sections }, ref: any) => {
+interface SectionsType {
+  sections: any;
+  ref: any;
+  setSection: any
+}
+
+const Sections: React.FC<SectionsType> = React.forwardRef(({ sections, ...rest }, ref: any) => {
   return (
     <div className={styles.sections} ref={ref}>
-      {sections.map((Section: any, index: number) => <Section key={index} />)}
+      {sections.map((Section: any, index: number) => <Section key={index} {...rest} />)}
     </div>
   );
 });
@@ -45,7 +51,7 @@ const HomePage: React.FC = () => {
         src={bg.current}
         className={styles.main__background}
         ref={backgroundImgRef} />
-      <Sections sections={sections} ref={sectionRef} />
+      <Sections sections={sections} ref={sectionRef} setSection={section.setValue} />
       <Slider slides={sections.length} current={section.controls.value} setSection={section.setValue} />
     </div>
   );
