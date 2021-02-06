@@ -16,7 +16,7 @@ const sections = [Section1, Section2, Section3]; // Extendable with new sections
 interface SectionsType {
   sections: any;
   ref: any;
-  setSection: any
+  setSection: any;
 }
 
 const Sections: React.FC<SectionsType> = React.forwardRef(({ sections, ...rest }, ref: any) => {

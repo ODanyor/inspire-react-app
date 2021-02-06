@@ -20,37 +20,49 @@
       animation-duration: 2.7s
       animation-timing-function: ease
       animation-fill-mode: forwards
+      animation-delay: 0.7s
 
     div:first-child
       font-size: 76px
       letter-spacing: 0
-      // filter: blur(0px)
       transform: translateX(-100%)
       animation-name: appearFromLeft
-      animation-delay: 1s
 
     div:last-child
       font-size: 56px
       margin-left: 3rem
       transform: translateX(100vw)
       letter-spacing: 13px
-
       animation-name: appearFormRight
-      animation-delay: 2.7s
-
-    @keyframes appearFromLeft
-      to
-        transform: translateX(0)
-        letter-spacing: 49px
-        opacity: 1
-
-    @keyframes appearFormRight
-      to
-        transform: translateX(0)
-        opacity: 1
 
   &__button
     @include custom-button
     font-size: 36px
     text-decoration: underline
     color: $orange
+    margin-top: 3rem
+    transform: translateY(-100%)
+    opacity: 0
+
+    animation-name: appearFormBottom
+    animation-duration: 1s
+    animation-timing-function: ease
+    animation-fill-mode: forwards
+    animation-delay: 3.4s
+
+// Keyframes
+@keyframes appearFromLeft
+  to
+    transform: translateX(0)
+    letter-spacing: 49px
+    opacity: 1
+
+@keyframes appearFormRight
+  to
+    transform: translateX(0)
+    opacity: 1
+
+@keyframes appearFormBottom
+  to
+    transform: translateY(0)
+    opacity: 1
