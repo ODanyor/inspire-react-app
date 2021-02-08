@@ -8,7 +8,7 @@ const cards = [
   {
     header: {
       title: 'Open your hidden skills',
-      content: 'Meditate content text ...'
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
     },
     body: {
       title: 'Meditate',
@@ -18,7 +18,7 @@ const cards = [
   {
     header: {
       title: 'Explore undefined',
-      content: 'Learn content text ...'
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
     },
     body: {
       title: 'Learn',
@@ -28,7 +28,7 @@ const cards = [
   {
     header: {
       title: 'Train mental',
-      content: 'Train content text ...'
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
     },
     body: {
       title: 'Train mind',

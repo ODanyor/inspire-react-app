@@ -11,7 +11,7 @@ import styles from './home.module.sass';
 import bgHigh from 'shared/assets/images/background-high.jpg';
 import bgLow from 'shared/assets/images/background-low.jpg';
 
-const sections = [Section1, Section2, Section3]; // Extendable with new sections wrapped by Section HOC 
+const sections = [Section1, Section2, Section3]; // Extendable with new sections wrapped by Section HOC
 
 interface SectionsType {
   sections: any;
