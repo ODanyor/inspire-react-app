@@ -15,7 +15,7 @@ const useImageLoad = (src: any, placeholder: any) => {
     }
   }, [src]);
 
-  return {loading: loading.controls.value, current: current.controls.value};
+  return { loading: loading.controls.value, current: current.controls.value };
 }
 
 export default useImageLoad;

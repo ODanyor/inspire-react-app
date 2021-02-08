@@ -13,6 +13,8 @@ const WithInterface: React.FC = ({ children }) => {
     menuIsOpen.setValue(!menuIsOpen.controls.value);
   }
 
+  const stick_class = `interface__button__stick${menuIsOpen.controls.value ? '_open' : ''}`;
+
   return (
     <React.Fragment>
       <div className='interface interface__header'>
@@ -22,8 +24,8 @@ const WithInterface: React.FC = ({ children }) => {
         
         <div className='flex'>
           <button className='interface__button' onClick={menuToggle}>
-            <div className={`interface__button__stick${menuIsOpen.controls.value ? '_open' : ''}`}></div>
-            <div className={`interface__button__stick${menuIsOpen.controls.value ? '_open' : ''}`}></div>
+            <div className={stick_class}></div>
+            <div className={stick_class}></div>
           </button>
         </div>
       </div>
