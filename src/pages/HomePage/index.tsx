@@ -7,7 +7,7 @@ import Section3 from './Section-3';
 
 import { Slider } from 'shared/components';
 
-import styles from './home.module.scss';
+import styles from './home.module.sass';
 import bgHigh from 'shared/assets/images/background-high.jpg';
 import bgLow from 'shared/assets/images/background-low.jpg';
 

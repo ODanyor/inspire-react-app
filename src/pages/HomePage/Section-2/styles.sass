@@ -1,0 +1,46 @@
+@import '../../../shared/assets/styles/mixins'
+@import '../../../shared/assets/styles/variables'
+
+.card
+  &__container
+    max-width: 750px
+    margin: 0 auto
+    margin-top: 6rem
+
+  &__list
+    @include flex-beetwen
+
+  &__header
+    @include flex-beetwen
+    align-items: flex-start
+    min-height: 200px
+
+    &__title
+      font-size: 52px
+      font-weight: 100
+      color: $orange
+
+    &__content
+      color: $white
+      width: 300px
+
+  &__body
+    @include custom-button
+    width: 100%
+    min-height: 250px
+    color: $white
+    padding: 1rem
+    background-color: #26312ac0
+    transition: filter 0.3s ease
+    text-align: initial
+    transition: all 0.3s ease
+
+    &_active
+      @extend .card__body
+      transform: scale(1.1)
+      background-color: $orange
+      z-index: 100
+
+    &__title
+      font-size: 36px
+      margin: 1rem 0

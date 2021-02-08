@@ -1,6 +1,6 @@
 @import '../../../shared/assets/styles/variables'
 @import '../../../shared/assets/styles/mixins'
-  
+
 .head
   position: relative
   top: 25%
@@ -33,7 +33,7 @@
       margin-left: 3rem
       transform: translateX(100vw)
       letter-spacing: 13px
-      animation-name: appearFormRight
+      animation-name: appearFromRight
 
   &__button
     @include custom-button
@@ -44,7 +44,7 @@
     transform: translateY(-100%)
     opacity: 0
 
-    animation-name: appearFormBottom
+    animation-name: appearFromBottom
     animation-duration: 1s
     animation-timing-function: ease
     animation-fill-mode: forwards
@@ -57,12 +57,12 @@
     letter-spacing: 49px
     opacity: 1
 
-@keyframes appearFormRight
+@keyframes appearFromRight
   to
     transform: translateX(0)
     opacity: 1
 
-@keyframes appearFormBottom
+@keyframes appearFromBottom
   to
     transform: translateY(0)
     opacity: 1
