@@ -1,0 +1,23 @@
+@import '../../../shared/assets/styles/variables'
+@import '../../../shared/assets/styles/mixins'
+  
+.cta
+  max-width: 750px
+  margin: 0 auto
+
+  &__header
+    margin-top: 6rem
+
+    &__title
+      font-size: 96px
+      text-align: center
+      @include stroke-text($color: $orange)
+
+  &__body
+    &__part
+      @include flex-beetwen
+
+    &__title
+      font-size: 72px
+      margin: 2rem 0
+      @include stroke-text($color: $white)

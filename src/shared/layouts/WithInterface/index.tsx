@@ -29,7 +29,7 @@ const WithInterface: React.FC = ({ children }) => {
         </div>
       </div>
 
-      <Menu isOpen={menuIsOpen.controls.value} />
+      <Menu isOpen={menuIsOpen.controls.value} close={() => menuIsOpen.setValue(false)} />
 
       {children}
 

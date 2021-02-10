@@ -11,28 +11,23 @@ const menu_items = [
 interface MenuLinkTypes {
   to: string;
   placeholder: string;
+  close: any;
 }
 
-const MenuLink: React.FC<MenuLinkTypes> = ({ to, placeholder }) => {
-  return (
-    <Link to={to}>
-      <li className='menu__link'>
-        {placeholder}
-        <div className='menu__link__bg' />
-      </li>
-    </Link>
-  );
+const MenuLink: React.FC<MenuLinkTypes> = ({ to, placeholder, close }) => {
+  return <Link to={to}  onClick={close}><li className='menu__link'>{placeholder}</li></Link>;
 }
 
 interface MenuTypes {
   isOpen: boolean;
+  close: any;
 }
 
-const Menu: React.FC<MenuTypes> = ({ isOpen }) => {
+const Menu: React.FC<MenuTypes> = ({ isOpen, ...rest }) => {
   return (
     <div className={isOpen ? 'menu menu_open' : 'menu'}>
       <ul className='menu__list'>
-        {menu_items.map((item, index) => <MenuLink key={index} {...item} />)}
+        {menu_items.map((item, index) => <MenuLink key={index} {...item} {...rest} />)}
       </ul>
     </div>
   );

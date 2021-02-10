@@ -1,3 +1,5 @@
+@import './variables'
+
 @mixin flex-beetwen
   display: flex
   align-items: center
@@ -7,3 +9,9 @@
   cursor: pointer
   border: none
   background: none
+
+@mixin stroke-text($color)
+  color: $transparent
+  font-weight: 900
+  text-transform: uppercase
+  -webkit-text-stroke: 1px $color
