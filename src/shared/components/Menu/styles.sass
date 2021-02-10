@@ -1,0 +1,60 @@
+@import '../../assets/styles/variables'
+  
+.menu
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 0
+  z-index: 900
+
+  overflow: hidden
+  transition: all 0.7s ease-in-out
+
+  &_open
+    width: 100%
+    height: 100%
+
+  &__list
+    position: absolute
+    width: 100vw
+    height: 100vh
+
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+    font-size: 52px
+    font-weight: 900
+    text-transform: uppercase
+    text-align: center
+
+    background-image: linear-gradient(rgba(255,255,255,0.3), rgba(0,0,0,0.3)), url(../../assets/images/background-high.jpg)
+    background-size: cover
+    background-position: center
+
+  &__link
+    position: relative
+    line-height: 1.7
+    letter-spacing: 7.3px
+    color: $transparent
+    -webkit-text-stroke: 1px $white
+    overflow: hidden
+
+    &__bg
+      position: absolute
+      top: 0
+      width: 100%
+      height: 100%
+      transform: translateX(-100%)
+      background-color: $white
+      clip-path: polygon(40px 0, 100% 0, calc(100% - 40px) 100%, 0 100%)
+      transition: transform 0.3s ease
+      opacity: 0.3
+
+    &:hover
+      -webkit-text-fill-color: $white
+      -webkit-text-stroke: 1px $white
+      .menu__link__bg
+        transform: translateX(0)

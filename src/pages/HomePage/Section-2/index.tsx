@@ -1,7 +1,6 @@
 import React from 'react';
 import Section from '../Section';
 import { useHandleValue } from 'shared/hooks';
-
 import './styles.sass';
 
 const cards = [
@@ -52,7 +51,7 @@ interface CardInterface {
 }
 
 const Card: React.FC<CardInterface> = ({ item, activeCard, setActive }) => {
-  const item_class = activeCard === item ? 'card__body_active' : 'card__body';
+  const item_class = activeCard === item ? 'card__body card__body_active' : 'card__body';
 
   return (
     <button className={item_class} onClick={() => setActive(item)}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHandleValue } from 'shared/hooks';
 
-import { Link } from 'shared/components';
+import { Link, Menu } from 'shared/components';
 
 import './styles.sass';
 import logo from 'shared/assets/logo.svg';
@@ -21,7 +21,6 @@ const WithInterface: React.FC = ({ children }) => {
         <Link to='/'>
           <img alt='logo' src={logo} height='25px' />
         </Link>
-        
         <div className='flex'>
           <button className='interface__button' onClick={menuToggle}>
             <div className={stick_class}></div>
@@ -29,6 +28,8 @@ const WithInterface: React.FC = ({ children }) => {
           </button>
         </div>
       </div>
+
+      <Menu isOpen={menuIsOpen.controls.value} />
 
       {children}
 

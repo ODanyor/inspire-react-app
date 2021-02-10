@@ -1,6 +1,5 @@
 import React from 'react';
 import Section from '../Section';
-
 import './styles.sass';
 
 const Section1: React.FC<{ setSection: any}> = ({ setSection }) => {
