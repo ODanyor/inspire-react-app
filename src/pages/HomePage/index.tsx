@@ -11,7 +11,8 @@ import styles from './home.module.sass';
 import bgHigh from 'shared/assets/images/background-high.jpg';
 import bgLow from 'shared/assets/images/background-low.jpg';
 
-const sections = [Section1, Section2, Section3]; // Extendable with new sections wrapped by Section HOC
+// Extendable with new sections wrapped via Section HOC
+const sections = [Section1, Section2, Section3];
 
 interface SectionsType {
   sections: any;
@@ -22,7 +23,7 @@ interface SectionsType {
 const Sections: React.FC<SectionsType> = React.forwardRef(({ sections, ...rest }, ref: any) => {
   return (
     <div className={styles.sections} ref={ref}>
-      {sections.map((Section: any, index: number) => <Section key={index} {...rest} />)}
+      {sections.map((Section: React.FC, index: number) => <Section key={index} {...rest} />)}
     </div>
   );
 });
