@@ -1,4 +1,4 @@
-import React, { ElementType, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useImageLoad, useHandleValue } from 'shared/hooks';
 
 import Section1 from './Section-1';
@@ -15,7 +15,7 @@ import bgLow from 'shared/assets/images/background-low.jpg';
 const sections = [Section1, Section2, Section3];
 
 interface SectionProps {
-  setSection(event: number): void;
+  setSection: (event: number) => void;
 }
 
 interface SectionsProps extends SectionProps {
@@ -26,7 +26,7 @@ interface SectionsProps extends SectionProps {
 const Sections: React.FC<SectionsProps> = React.forwardRef(({ sections, ...rest }, ref: any) => {
   return (
     <div className={styles.sections} ref={ref}>
-      {sections.map((Section: React.FC, index: number) => <Section key={index} {...rest} />)}
+      {sections.map((Section: React.FC<SectionProps>, index: number) => <Section key={index} {...rest} />)}
     </div>
   );
 });
@@ -35,17 +35,14 @@ const HomePage: React.FC = () => {
   const section = useHandleValue(0);
   const pageContainerRef = useRef<HTMLDivElement>(null);
   const backgroundImgRef = useRef<HTMLImageElement>(null);
-  const sectionRef = useRef<ElementType>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const bg = useImageLoad(bgHigh, bgLow); // the background image
 
   useEffect(() => {
-    // @ts-ignore
     sectionRef.current!.style.transform = `translateX(-${section.controls.value * 100}vw)`;
 
-    // @ts-ignore
-    backgroundImgRef.current.style.width = sections.length * 100 + 'vw';
-    // @ts-ignore
-    backgroundImgRef.current.style.transform = `translateX(-${section.controls.value * 100}vw)`;
+    backgroundImgRef.current!.style.width = sections.length * 100 + 'vw';
+    backgroundImgRef.current!.style.transform = `translateX(-${section.controls.value * 100}vw)`;
   }, [section.controls.value]);
 
   return (
