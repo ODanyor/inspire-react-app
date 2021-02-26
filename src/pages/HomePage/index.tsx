@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { ElementType, useEffect, useRef } from 'react';
 import { useImageLoad, useHandleValue } from 'shared/hooks';
 
 import Section1 from './Section-1';
@@ -13,13 +13,16 @@ import bgLow from 'shared/assets/images/background-low.jpg';
 
 const sections = [Section1, Section2, Section3]; // Extendable with new sections wrapped by Section HOC
 
-interface SectionsType {
-  sections: any;
-  ref: any;
-  setSection: any;
+interface SectionProps {
+  setSection(event: number): void;
 }
 
-const Sections: React.FC<SectionsType> = React.forwardRef(({ sections, ...rest }, ref: any) => {
+interface SectionsProps extends SectionProps {
+  sections: React.FC<SectionProps>[];
+  ref: any;
+}
+
+const Sections: React.FC<SectionsProps> = React.forwardRef(({ sections, ...rest }, ref: any) => {
   return (
     <div className={styles.sections} ref={ref}>
       {sections.map((Section: any, index: number) => <Section key={index} {...rest} />)}
@@ -29,14 +32,14 @@ const Sections: React.FC<SectionsType> = React.forwardRef(({ sections, ...rest }
 
 const HomePage: React.FC = () => {
   const section = useHandleValue(0);
-  const pageContainerRef = useRef(null);
-  const backgroundImgRef = useRef(null);
-  const sectionRef = useRef(null);
+  const pageContainerRef = useRef<HTMLDivElement>(null);
+  const backgroundImgRef = useRef<HTMLImageElement>(null);
+  const sectionRef = useRef<ElementType>(null);
   const bg = useImageLoad(bgHigh, bgLow); // the background image
 
   useEffect(() => {
     // @ts-ignore
-    sectionRef.current.style.transform = `translateX(-${section.controls.value * 100}vw)`;
+    sectionRef.current!.style.transform = `translateX(-${section.controls.value * 100}vw)`;
 
     // @ts-ignore
     backgroundImgRef.current.style.width = sections.length * 100 + 'vw';

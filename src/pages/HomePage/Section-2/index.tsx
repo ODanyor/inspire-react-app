@@ -61,7 +61,7 @@ const Card: React.FC<CardInterface> = ({ item, activeCard, setActive }) => {
   );
 }
 
-const Section2: React.FC = () => {
+const Section2: React.FC<{ setSection: any }> = ({ setSection }) => {
   const activeCard = useHandleValue(cards[0]);
   const { title, content } = activeCard.controls.value.header;
 
@@ -80,6 +80,10 @@ const Section2: React.FC = () => {
             activeCard={activeCard.controls.value}
             setActive={activeCard.setValue} />
         ))}
+      </div>
+
+      <div className="card__button">
+        <button onClick={() => setSection(2)}>Got it</button>
       </div>
     </div>
   );

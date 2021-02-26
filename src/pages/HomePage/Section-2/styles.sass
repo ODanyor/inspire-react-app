@@ -2,6 +2,17 @@
 @import '../../../shared/assets/styles/variables'
 
 .card
+  &__button
+    margin-top: 4rem
+    display: flex
+    justify-content: center
+
+    button
+      @include custom-button
+      font-size: 36px
+      color: $white
+      text-decoration: underline
+
   &__container
     max-width: 750px
     margin: 0 auto

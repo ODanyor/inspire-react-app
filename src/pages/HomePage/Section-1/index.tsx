@@ -2,7 +2,11 @@ import React from 'react';
 import Section from '../Section';
 import './styles.sass';
 
-const Section1: React.FC<{ setSection: any}> = ({ setSection }) => {
+interface Section1Props {
+  setSection(event: number): void;
+}
+
+const Section1: React.FC<Section1Props> = ({ setSection }) => {
   return (
     <React.Fragment>
       <div className='head'>
