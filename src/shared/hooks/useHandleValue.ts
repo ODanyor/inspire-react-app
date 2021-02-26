@@ -9,8 +9,8 @@ interface HandleProps<T> {
 }
 
 const useHandleValue = <T>(initialValue: T): HandleProps<T> => {
-  const [value, setValue] = useState<T>(initialValue);
-  function onChange (event: T) {
+  const [value, setValue] = useState<typeof initialValue>(initialValue);
+  function onChange (event: typeof initialValue) {
     setValue(event);
   }
 
