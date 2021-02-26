@@ -1,8 +1,12 @@
 import { useEffect } from 'react';
 import { useHandleValue } from 'shared/hooks';
 
-// @ts-ignore
-const useImageLoad = (src: any, placeholder: any) => {
+interface ImageLoadProps {
+  loading: boolean;
+  current: string;
+}
+
+const useImageLoad = (src: string, placeholder: string): ImageLoadProps => {
   const loading = useHandleValue(true);
   const current = useHandleValue(placeholder);
 
