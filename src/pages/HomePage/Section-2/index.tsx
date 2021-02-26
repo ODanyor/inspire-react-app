@@ -1,40 +1,8 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import Section from '../Section';
 import { useHandleValue } from 'shared/hooks';
+import { cards } from 'shared/assets/content';
 import './styles.sass';
-
-const cards = [
-  {
-    header: {
-      title: 'Open your hidden skills',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    },
-    body: {
-      title: 'Meditate',
-      content: 'Body content text ...'
-    }
-  },
-  {
-    header: {
-      title: 'Explore undefined',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    },
-    body: {
-      title: 'Learn',
-      content: 'Body content text ...'
-    }
-  },
-  {
-    header: {
-      title: 'Train mental',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    },
-    body: {
-      title: 'Train mind',
-      content: 'Body content text ...'
-    }
-  },
-];
 
 interface TitleAndContent {
   title: string;
@@ -51,12 +19,22 @@ interface CardInterface {
 }
 
 const Card: React.FC<CardInterface> = ({ item, activeCard, setActive }) => {
-  const item_class = activeCard === item ? 'card__body card__body_active' : 'card__body';
+  const cardBgRef = useRef(null);
+  const isActive: boolean = activeCard === item;
+  const item_class = isActive ? 'card__body card__body_active' : 'card__body';
+
+  useEffect(() => {
+    if (cardBgRef) {
+      // @ts-ignore
+      cardBgRef.current.style.transform = isActive ? `translateY(0)` : `translateY(100%)`;
+    }
+  }, [cardBgRef, isActive]);
 
   return (
     <button className={item_class} onClick={() => setActive(item)}>
       <div className='card__body__title'>{item.body.title}</div>
       <div className='card__body__content'>{item.body.content}</div>
+      <div className="card__body__background" ref={cardBgRef}></div>
     </button>
   );
 }

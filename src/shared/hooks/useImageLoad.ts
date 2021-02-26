@@ -13,7 +13,7 @@ const useImageLoad = (src: any, placeholder: any) => {
       loading.setValue(false);
       current.setValue(src);
     }
-  }, [src]);
+  }, [src]); // eslint-disable-line
 
   return { loading: loading.controls.value, current: current.controls.value };
 }

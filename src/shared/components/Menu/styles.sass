@@ -10,9 +10,14 @@
   z-index: 900
 
   overflow: hidden
-  transition: all 0.7s ease-in-out
+  transition: all 0.7s ease-in-out, background-size 1.7s ease
+
+  background-image: linear-gradient(rgba(255,255,255,0.3), rgba(0,0,0,0.3)), url(../../assets/images/background-high.jpg)
+  background-size: 450%
+  background-position: top
 
   &_open
+    background-size: 100%
     width: 100%
     height: 100%
 
@@ -30,10 +35,6 @@
     @include stroke-text($color: $white)
     text-align: center
 
-    background-image: linear-gradient(rgba(255,255,255,0.3), rgba(0,0,0,0.3)), url(../../assets/images/background-high.jpg)
-    background-size: cover
-    background-position: center
-
   &__link
     position: relative
     line-height: 1.7
@@ -42,8 +43,7 @@
     overflow: hidden
 
     &::before
-      content: ''
-      position: absolute
+      @include custom-pseudo
       width: 100%
       height: 100%
       transform: translateX(-100%)

@@ -8,15 +8,13 @@ interface Section1Props {
 
 const Section1: React.FC<Section1Props> = ({ setSection }) => {
   return (
-    <React.Fragment>
-      <div className='head'>
-        <div className="head__title">
-          <div>Discover</div>
-          <div>Explore horizonts</div>
-        </div>
-        <button className='head__button' onClick={() => setSection(1)}>Take a tour now &#8594;</button>
+    <div className='head'>
+      <div className="head__title">
+        <div>Discover</div>
+        <div>Explore horizonts</div>
       </div>
-    </React.Fragment>
+      <button className='head__button' onClick={() => setSection(1)}>Take a tour now &#8594;</button>
+    </div>
   );
 }
 
