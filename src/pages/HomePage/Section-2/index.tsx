@@ -1,32 +1,19 @@
 import React, { useRef, useEffect } from 'react';
 import Section from '../Section';
 import { useHandleValue } from 'shared/hooks';
-import { cards } from 'shared/assets/content';
+import { cards } from 'shared/assets/context';
+import { CardProps, CardInterface, SectionProps } from 'shared/interfaces';
 import './styles.sass';
 
-interface TitleAndContent {
-  title: string;
-  content: string;
-}
-
-interface CardInterface {
-  item: {
-    header: TitleAndContent;
-    body: TitleAndContent;
-  };
-  activeCard: any;
-  setActive: any;
-}
-
-const Card: React.FC<CardInterface> = ({ item, activeCard, setActive }) => {
-  const cardBgRef = useRef(null);
+const Card: React.FC<CardProps> = ({ item, activeCard, setActive }) => {
+  const cardBgRef = useRef<HTMLDivElement>(null);
   const isActive: boolean = activeCard === item;
   const item_class = isActive ? 'card__body card__body_active' : 'card__body';
 
   useEffect(() => {
     if (cardBgRef) {
-      // @ts-ignore
-      cardBgRef.current.style.transform = isActive ? `translateY(0)` : `translateY(100%)`;
+      cardBgRef.current!.style.transform = isActive ?
+        `translateY(0)` : `translateY(100%)`;
     }
   }, [cardBgRef, isActive]);
 
@@ -39,8 +26,8 @@ const Card: React.FC<CardInterface> = ({ item, activeCard, setActive }) => {
   );
 }
 
-const Section2: React.FC<{ setSection: any }> = ({ setSection }) => {
-  const activeCard = useHandleValue(cards[0]);
+const Section2: React.FC<SectionProps> = ({ setSection }) => {
+  const activeCard = useHandleValue<CardInterface>(cards[0]);
   const { title, content } = activeCard.controls.value.header;
 
   return (
@@ -51,7 +38,7 @@ const Section2: React.FC<{ setSection: any }> = ({ setSection }) => {
       </div>
 
       <div className='card__list'>
-        {cards.map((card, index) => (
+        {cards.map((card: CardInterface, index) => (
           <Card
             key={index}
             item={card}

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { ReactChild } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import styles from './link.module.scss';
 
 interface LinkTypes {
   to: string;
-  children: any;
-  onClick?: any;
+  children: ReactChild;
+  onClick?: () => void;
 }
 
 const Link: React.FC<LinkTypes> = ({ to, children, ...rest }) => {

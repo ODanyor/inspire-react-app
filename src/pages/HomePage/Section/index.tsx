@@ -1,12 +1,9 @@
 import React from 'react';
 import styles from '../home.module.sass';
-
-interface SectionProps {
-  setSection(event: number): void;
-}
+import { SectionProps } from 'shared/interfaces';
 
 const index = (WrappedComponent: React.FC<SectionProps>) => {
-  return React.forwardRef((props: SectionProps, ref: any) => {
+  return React.forwardRef((props: SectionProps, ref: React.Ref<HTMLDivElement>) => {
     return (
       <div className={styles.section} ref={ref}>
         <WrappedComponent {...props} />

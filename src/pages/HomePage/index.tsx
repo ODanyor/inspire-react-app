@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useImageLoad, useHandleValue } from 'shared/hooks';
+import { SectionProps, SectionsProps } from 'shared/interfaces';
 
 import Section1 from './Section-1';
 import Section2 from './Section-2';
@@ -11,19 +12,10 @@ import styles from './home.module.sass';
 import bgHigh from 'shared/assets/images/background-high.jpg';
 import bgLow from 'shared/assets/images/background-low.jpg';
 
-// Extendable with new sections wrapped via Section HOC
+// Extendable with new sections wrapped via HOC Section
 const sections = [Section1, Section2, Section3];
 
-interface SectionProps {
-  setSection: (event: number) => void;
-}
-
-interface SectionsProps extends SectionProps {
-  sections: React.FC<SectionProps>[];
-  ref: any;
-}
-
-const Sections: React.FC<SectionsProps> = React.forwardRef(({ sections, ...rest }, ref: any) => {
+const Sections: React.FC<SectionsProps> = React.forwardRef(({ sections, ...rest }, ref) => {
   return (
     <div className={styles.sections} ref={ref}>
       {sections.map((Section: React.FC<SectionProps>, index: number) => <Section key={index} {...rest} />)}
@@ -35,8 +27,8 @@ const HomePage: React.FC = () => {
   const section = useHandleValue(0);
   const pageContainerRef = useRef<HTMLDivElement>(null);
   const backgroundImgRef = useRef<HTMLImageElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-  const bg = useImageLoad(bgHigh, bgLow); // the background image
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const bg = useImageLoad(bgHigh, bgLow); // background image
 
   useEffect(() => {
     sectionRef.current!.style.transform = `translateX(-${section.controls.value * 100}vw)`;

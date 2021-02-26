@@ -1,8 +1,16 @@
 import { useState } from 'react';
 
-const useHandleValue = (initialValue: any) => {
-  const [value, setValue] = useState(initialValue);
-  function onChange (event: typeof initialValue) {
+interface HandleProps<T> {
+  controls: {
+    value: T;
+    onChange: (event: T) => void;
+  };
+  setValue: React.Dispatch<T>;
+}
+
+const useHandleValue = <T>(initialValue: T): HandleProps<T> => {
+  const [value, setValue] = useState<T>(initialValue);
+  function onChange (event: T) {
     setValue(event);
   }
 

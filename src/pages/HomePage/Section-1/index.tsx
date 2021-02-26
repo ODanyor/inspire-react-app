@@ -1,12 +1,9 @@
 import React from 'react';
 import Section from '../Section';
+import { SectionProps } from 'shared/interfaces';
 import './styles.sass';
 
-interface Section1Props {
-  setSection(event: number): void;
-}
-
-const Section1: React.FC<Section1Props> = ({ setSection }) => {
+const Section1: React.FC<SectionProps> = ({ setSection }) => {
   return (
     <div className='head'>
       <div className="head__title">

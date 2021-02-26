@@ -7,10 +7,14 @@ import './styles.sass';
 import logo from 'shared/assets/logo.svg';
 
 const WithInterface: React.FC = ({ children }) => {
-  const menuIsOpen = useHandleValue(false);
+  const menuIsOpen = useHandleValue<boolean>(false);
 
-  function menuToggle () {
+  function menuToggle() {
     menuIsOpen.setValue(!menuIsOpen.controls.value);
+  }
+
+  function onClose() {
+    menuIsOpen.setValue(false);
   }
 
   const stick_class = `interface__button__stick${menuIsOpen.controls.value ? '_open' : ''}`;
@@ -29,7 +33,7 @@ const WithInterface: React.FC = ({ children }) => {
         </div>
       </div>
 
-      <Menu isOpen={menuIsOpen.controls.value} close={() => menuIsOpen.setValue(false)} />
+      <Menu isOpen={menuIsOpen.controls.value} onClose={onClose} />
 
       {children}
 

@@ -1,10 +1,10 @@
 import React from 'react';
+import { SectionProps } from 'shared/interfaces';
 import './styles.sass';
 
-interface SliderTypes {
+interface SliderTypes extends SectionProps {
   slides: number;
   current: number;
-  setSection: any;
 }
 
 const Slider: React.FC<SliderTypes> = ({ slides, current, setSection }) => {
@@ -20,7 +20,10 @@ const Slider: React.FC<SliderTypes> = ({ slides, current, setSection }) => {
 
   function renderSwitchers () {
     const switchers = [];
-    while (slides--) switchers.push(<div key={'slide_' + (slides + 1)} className='slider__queue'>{slides + 1}</div>);
+    while (slides--) {
+      const index = slides + 1;
+      switchers.push(<div key={'slide_' + index} className='slider__queue'>{index}</div>);
+    }
 
     return switchers;
   }
