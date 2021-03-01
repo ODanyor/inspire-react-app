@@ -36,3 +36,13 @@ export interface MenuProps {
 export interface MenuLinkProps extends Menu {
   onClose: () => void;
 }
+
+export interface Position {
+  x: number | undefined;
+  y: number | undefined;
+
+}
+
+export interface CursorProps {
+  position: Position
+}
