@@ -40,7 +40,6 @@ export interface MenuLinkProps extends Menu {
 export interface Position {
   x: number | undefined;
   y: number | undefined;
-
 }
 
 export interface CursorProps {
