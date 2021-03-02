@@ -34,7 +34,6 @@ const WithInterface: React.FC = ({ children }) => {
   return (
     <React.Fragment>
       <Cursor position={cursorPosition.controls.value} />
-
       <Menu isOpen={menuIsOpen.controls.value} onClose={onClose} />
 
       <div className='interface interface__header'>
