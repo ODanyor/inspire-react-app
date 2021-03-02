@@ -29,7 +29,7 @@ const WithInterface: React.FC = ({ children }) => {
   useEffect(() => {
     window.addEventListener('mousemove', onMouseMove)
     return () => window.removeEventListener('mousemove', onMouseMove);
-  }, []);
+  }, []); // eslint-disable-line
 
   return (
     <React.Fragment>
