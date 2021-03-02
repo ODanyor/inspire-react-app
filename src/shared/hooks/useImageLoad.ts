@@ -7,8 +7,8 @@ interface ImageLoadProps {
 }
 
 const useImageLoad = (src: string, placeholder: string): ImageLoadProps => {
-  const loading = useHandleValue(true);
-  const current = useHandleValue(placeholder);
+  const loading = useHandleValue<boolean>(true);
+  const current = useHandleValue<string>(placeholder);
 
   useEffect(() => {
     const imageToLoad = new Image();
