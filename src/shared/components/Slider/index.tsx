@@ -5,6 +5,7 @@ import './styles.sass';
 interface SliderTypes extends SectionProps {
   slides: number;
   current: number;
+  setSection: (index: number) => void;
 }
 
 const Slider: React.FC<SliderTypes> = ({ slides, current, setSection }) => {
