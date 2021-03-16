@@ -15,7 +15,7 @@ const WithInterface: React.FC = ({ children }) => {
     menuIsOpen.setValue(!menuIsOpen.controls.value);
   }
 
-  function onClose() {
+  function closeMenu() {
     menuIsOpen.setValue(false);
   }
   
@@ -34,7 +34,7 @@ const WithInterface: React.FC = ({ children }) => {
   return (
     <React.Fragment>
       <Cursor position={cursorPosition.controls.value} />
-      <Menu isOpen={menuIsOpen.controls.value} onClose={onClose} />
+      <Menu isOpen={menuIsOpen.controls.value} onClose={closeMenu} />
 
       <div className='interface interface__header'>
         <Link to='/'>

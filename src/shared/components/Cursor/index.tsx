@@ -9,9 +9,7 @@ const Cursor: React.FC<CursorProps> = ({ position }) => {
     cursorRef.current!.style.transform = `translate(${position.x}px, ${position.y}px)`;
   }, [position]);
 
-  return (
-    <div className='cursor' ref={cursorRef}></div>
-  );
+  return <div className='cursor' ref={cursorRef}></div>;
 }
 
 export default Cursor;
