@@ -8,22 +8,19 @@ import './styles.sass';
 interface LinkTypes {
   to: string;
   children: ReactChild;
-  onClick?: () => void;
   cursorstate: CursorContextProps;
+  onClick?: () => void;
 }
 
-const Link: React.FC<LinkTypes> = (props) => {
-  const { to, children, cursorstate, ...rest } = props;
-  return (
-    <RouterLink
-      to={to}
-      className='link__custom'
-      onMouseEnter={() => cursorstate.onCursor!(SUPPORTED_CURSORS[1])}
-      onMouseLeave={cursorstate.onCursor}
-      { ...rest}>
-      {children}
-    </RouterLink>
-  );
-}
+const Link: React.FC<LinkTypes> = ({ to, children, cursorstate, ...rest }) => (
+  <RouterLink
+    to={to}
+    className='link__custom'
+    onMouseEnter={() => cursorstate.onCursor!(SUPPORTED_CURSORS[1])}
+    onMouseLeave={cursorstate.onCursor}
+    { ...rest}>
+    {children}
+  </RouterLink>
+);
 
 export default WithCursorContext(Link);

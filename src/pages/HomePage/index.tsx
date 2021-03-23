@@ -14,13 +14,11 @@ import bgLow from 'shared/assets/images/background-low.jpg';
 // Extendable with new sections wrapped via HOC Section
 const sections = [Section1, Section2, Section3];
 
-const Sections: React.FC<SectionsProps> = React.forwardRef(({ sections, ...rest }, ref) => {
-  return (
-    <div className={styles.sections} ref={ref}>
-      {sections.map((Section: React.FC<SectionProps>, index: number) => <Section key={index} {...rest} />)}
-    </div>
-  );
-});
+const Sections: React.FC<SectionsProps> = React.forwardRef(({ sections, ...rest }, ref) => (
+  <div className={styles.sections} ref={ref}>
+    {sections.map((Section: React.FC<SectionProps>, index: number) => <Section key={index} {...rest} />)}
+  </div>
+));
 
 const HomePage: React.FC = () => {
   const section = useHandleValue(0);

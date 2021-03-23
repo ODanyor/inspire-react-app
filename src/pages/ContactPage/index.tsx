@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './contact.module.sass';
 
 const ContactPage: React.FC = () => {
   return (
-    <div>
+    <div className={styles.main}>
       
     </div>
   );

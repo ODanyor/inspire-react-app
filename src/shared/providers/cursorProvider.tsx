@@ -8,7 +8,7 @@ const CursorProvider: React.FC = ({ children }) => {
   const cursorRef = useRef<HTMLDivElement>(null);
   const cursor = useHandleValue<boolean | string>(false);
 
-  function onMouseMove(event: MouseEventInit) {
+  function onCursorMove(event: MouseEventInit) {
     const { clientX: x, clientY: y } = event;
     cursorRef.current!.style.transform = `translate(${x}px, ${y}px)`;
   }
@@ -19,8 +19,8 @@ const CursorProvider: React.FC = ({ children }) => {
   }
 
   useEffect(() => {
-    window.addEventListener('mousemove', onMouseMove)
-    return () => window.removeEventListener('mousemove', onMouseMove);
+    window.addEventListener('mousemove', onCursorMove)
+    return () => window.removeEventListener('mousemove', onCursorMove);
   }, []); // eslint-disable-line
 
   return (
