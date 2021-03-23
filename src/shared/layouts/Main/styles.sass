@@ -17,26 +17,3 @@
     bottom: 0
     left: 0
     color: $white
-
-  &__button
-    @include custom-button
-    @include flex-beetwen
-    flex-direction: column
-    height: 24px
-    padding: 5px;
-
-    &__stick
-      position: relative;
-      width: 25px
-      height: 5px
-      background-color: $white
-      transition: all 0.3s ease
-
-      &_open
-        @extend .interface__button__stick
-
-        &:first-child
-          transform: rotate(45deg) translate(3px, 3px)
-
-        &:last-child
-          transform: rotate(-45deg) translate(3px, -3px)

@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { Button } from 'shared/components';
 import { WithSection } from 'shared/hocs';
 import { useHandleValue } from 'shared/hooks';
 import { CardProps, CardInterface, SectionProps } from 'shared/interfaces';
@@ -18,11 +19,11 @@ const Card: React.FC<CardProps> = ({ item, activeCard, setActive }) => {
   }, [cardBgRef, isActive]);
 
   return (
-    <button className={item_class} onClick={() => setActive(item)}>
+    <Button className={item_class} onClick={() => setActive(item)}>
       <div className='card__body__title'>{item.body.title}</div>
       <div className='card__body__content'>{item.body.content}</div>
       <div className="card__body__background" ref={cardBgRef}></div>
-    </button>
+    </Button>
   );
 }
 
@@ -48,7 +49,7 @@ const Section2: React.FC<SectionProps> = ({ setSection }) => {
       </div>
 
       <div className="card__button">
-        <button onClick={() => setSection(2)}>Got it</button>
+        <Button onClick={() => setSection(2)}>Got it</Button>
       </div>
     </div>
   );

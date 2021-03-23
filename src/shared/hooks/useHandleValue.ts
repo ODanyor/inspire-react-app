@@ -1,12 +1,5 @@
-import { ChangeEvent, useState } from 'react';
-
-interface HandleProps<T> {
-  controls: {
-    value: T;
-    onChange: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
-  };
-  setValue: React.Dispatch<T>;
-}
+import { useState } from 'react';
+import { HandleProps } from 'shared/interfaces';
 
 const useHandleValue = <T>(initialValue: T): HandleProps<T> => {
   const [value, setValue] = useState<typeof initialValue>(initialValue);

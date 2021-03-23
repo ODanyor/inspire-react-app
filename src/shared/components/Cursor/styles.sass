@@ -4,8 +4,7 @@
   pointer-events: none
   position: fixed;
   background-color: $orange
-  opacity: 0.9
-  transition: transform 70ms ease
+  transition: all $ct ease, transform 70ms ease, width $ct ease, height $ct ease, top $ct ease, left $ct ease
   z-index: 2000
 
   width: 25px
@@ -13,3 +12,13 @@
   top: -12.5px
   left: -12.5px
   border-radius: 50%
+  border: 0px solid $orange
+
+  &_pointer
+    width: 100px
+    height: 100px
+    top: -50px
+    left: -50px
+    opacity: 0.7
+    border: 3px solid $orange
+    background-color: $transparent

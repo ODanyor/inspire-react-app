@@ -1,4 +1,17 @@
-import { Ref } from 'react';
+import { Ref, ChangeEvent } from 'react';
+
+export interface HandleProps<T> {
+  controls: {
+    value: T;
+    onChange: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
+  };
+  setValue: React.Dispatch<T>;
+}
+
+export interface ImageLoadProps {
+  loading: boolean;
+  current: string;
+}
 
 export interface SectionProps {
   setSection: (event: number) => void;
@@ -47,4 +60,8 @@ export interface Position {
 export interface CursorProps {
   ref: Ref<HTMLDivElement>;
   cursor: boolean | string;
+}
+
+export interface CursorContextProps {
+  onCursor?: (value: any) => void;
 }

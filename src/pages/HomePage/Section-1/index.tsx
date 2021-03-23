@@ -1,6 +1,7 @@
 import React from 'react';
 import { WithSection } from 'shared/hocs';
 import { SectionProps } from 'shared/interfaces';
+import { Button } from 'shared/components';
 import './styles.sass';
 
 const Section1: React.FC<SectionProps> = ({ setSection }) => {
@@ -10,7 +11,7 @@ const Section1: React.FC<SectionProps> = ({ setSection }) => {
         <div>Discover</div>
         <div>Explore horizonts</div>
       </div>
-      <button className='head__button' onClick={() => setSection(1)}>Take a tour now &#8594;</button>
+      <Button className='head__button' onClick={() => setSection(1)}>Take a tour now &#8594;</Button>
     </div>
   );
 }

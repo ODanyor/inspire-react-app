@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'shared/components';
 import { SectionProps } from 'shared/interfaces';
 import './styles.sass';
 
@@ -13,7 +14,7 @@ interface PointButtonProps {
   onClick: () => void;
 }
 
-const PointButton: React.FC<PointButtonProps> = (props) => <button {...props}><div /></button>;
+const PointButton: React.FC<PointButtonProps> = (props) => <Button {...props}><div /></Button>;
 
 const Slider: React.FC<SliderProps> = ({ slides, current, setSection }) => {
   function renderPoints () {

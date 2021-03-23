@@ -2,8 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useHandleValue } from 'shared/hooks';
 import { Cursor } from 'shared/components';
 import { CursorContext } from 'shared/utils';
-
-const SUPPORTED_CURSORS = [false, 'pointer'];
+import { SUPPORTED_CURSORS } from 'shared/constants';
 
 const CursorProvider: React.FC = ({ children }) => {
   const cursorRef = useRef<HTMLDivElement>(null);

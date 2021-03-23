@@ -1,10 +1,6 @@
 import { useEffect } from 'react';
 import { useHandleValue } from 'shared/hooks';
-
-interface ImageLoadProps {
-  loading: boolean;
-  current: string;
-}
+import { ImageLoadProps } from 'shared/interfaces';
 
 const useImageLoad = (src: string, placeholder: string): ImageLoadProps => {
   const loading = useHandleValue<boolean>(true);
