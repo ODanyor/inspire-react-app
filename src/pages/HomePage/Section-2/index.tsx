@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import Section from '../Section';
+import { WithSection } from 'shared/hocs';
 import { useHandleValue } from 'shared/hooks';
 import { cards } from 'shared/assets/context';
 import { CardProps, CardInterface, SectionProps } from 'shared/interfaces';
@@ -54,4 +54,4 @@ const Section2: React.FC<SectionProps> = ({ setSection }) => {
   );
 }
 
-export default Section(Section2);
+export default WithSection(Section2);

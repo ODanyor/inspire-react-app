@@ -1,5 +1,5 @@
 import React from 'react';
-import Section from '../Section';
+import { WithSection } from 'shared/hocs';
 import { SectionProps } from 'shared/interfaces';
 import './styles.sass';
 
@@ -15,4 +15,4 @@ const Section1: React.FC<SectionProps> = ({ setSection }) => {
   );
 }
 
-export default Section(Section1);
+export default WithSection(Section1);

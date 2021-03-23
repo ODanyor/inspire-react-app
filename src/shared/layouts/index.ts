@@ -1,1 +1,1 @@
-export { default as WithInterface } from './WithInterface';
+export { default as Main } from './Main';

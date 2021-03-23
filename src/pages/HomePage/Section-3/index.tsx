@@ -1,5 +1,5 @@
 import React from 'react';
-import Section from '../Section';
+import { WithSection } from 'shared/hocs';
 
 import './styles.sass';
 import wave from 'shared/assets/wave.svg';
@@ -25,4 +25,4 @@ const Section3: React.FC = () => {
   );
 }
 
-export default Section(Section3);
+export default WithSection(Section3);
