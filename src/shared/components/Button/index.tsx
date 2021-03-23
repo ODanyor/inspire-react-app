@@ -7,7 +7,7 @@ interface ButtonProps {
   className: string;
   children: ReactChild;
   cursorstate: CursorContextProps;
-  onClick?: () => void;
+  onClick: () => void;
 }
 
 const Button: React.FC<ButtonProps> = ({ children, cursorstate, ...rest }) => (

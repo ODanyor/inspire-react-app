@@ -15,7 +15,7 @@ const WithInterface: React.FC = ({ children }) => {
 
   return (
     <CursorProvider>
-      <Menu isOpen={menuIsOpen.controls.value} onClose={onClose} />
+      <Menu isOpen={menuIsOpen.controls.value} onClick={onClose} />
       <div className='interface interface__header'>
         <Link to='/'>
           <img alt='logo' src={logo} height='25px' />

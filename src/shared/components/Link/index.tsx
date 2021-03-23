@@ -9,12 +9,11 @@ interface LinkTypes {
   to: string;
   children: ReactChild;
   cursorstate: CursorContextProps;
-  onClick?: () => void;
+  onClick: () => void;
 }
 
-const Link: React.FC<LinkTypes> = ({ to, children, cursorstate, ...rest }) => (
+const Link: React.FC<LinkTypes> = ({ children, cursorstate, ...rest }) => (
   <RouterLink
-    to={to}
     className='link__custom'
     onMouseEnter={() => cursorstate.onCursor!(SUPPORTED_CURSORS[1])}
     onMouseLeave={cursorstate.onCursor}

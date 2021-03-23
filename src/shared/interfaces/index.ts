@@ -38,18 +38,17 @@ export interface CardProps {
   setActive: React.Dispatch<CardInterface>;
 }
 
-export interface Menu {
-  to: string;
-  placeholder: string;
+interface Menu {
+  onClick: () => void;
 }
 
-export interface MenuProps {
+export interface MenuProps extends Menu {
   isOpen: boolean;
-  onClose: () => void;
 }
 
 export interface MenuLinkProps extends Menu {
-  onClose: () => void;
+  to: string;
+  placeholder: string;
 }
 
 export interface Position {

@@ -4,8 +4,8 @@ import { menuItems } from 'shared/assets/context';
 import { MenuProps, MenuLinkProps } from 'shared/interfaces';
 import './styles.sass';
 
-const MenuLink: React.FC<MenuLinkProps> = ({ to, placeholder, onClose }) => (
-  <Link to={to} onClick={onClose}><li className='menu__link'>{placeholder}</li></Link>
+const MenuLink: React.FC<MenuLinkProps> = ({ placeholder, ...rest }) => (
+  <Link {...rest}><li className='menu__link'>{placeholder}</li></Link>
 );
 
 const Menu: React.FC<MenuProps> = ({ isOpen, ...rest }) => (
