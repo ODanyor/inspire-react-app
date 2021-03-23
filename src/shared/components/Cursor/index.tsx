@@ -1,15 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+import React, { forwardRef, Ref } from 'react';
 import { CursorProps } from 'shared/interfaces';
 import './styles.sass';
 
-const Cursor: React.FC<CursorProps> = ({ position }) => {
-  const cursorRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    cursorRef.current!.style.transform = `translate(${position.x}px, ${position.y}px)`;
-  }, [position]);
-
-  return <div className='cursor' ref={cursorRef}></div>;
-}
+const Cursor: React.FC<CursorProps> = forwardRef(({ cursor }, ref: Ref<HTMLDivElement>) => {
+  console.log({ cursor });
+  return <div className='cursor' ref={ref}></div>;
+});
 
 export default Cursor;

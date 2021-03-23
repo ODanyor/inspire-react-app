@@ -2,18 +2,25 @@ import React from 'react';
 import { SectionProps } from 'shared/interfaces';
 import './styles.sass';
 
-interface SliderTypes extends SectionProps {
+interface SliderProps extends SectionProps {
   slides: number;
   current: number;
   setSection: (index: number) => void;
 }
 
-const Slider: React.FC<SliderTypes> = ({ slides, current, setSection }) => {
+interface PointButtonProps {
+  className: string;
+  onClick: () => void;
+}
+
+const PointButton: React.FC<PointButtonProps> = (props) => <button {...props}><div /></button>;
+
+const Slider: React.FC<SliderProps> = ({ slides, current, setSection }) => {
   function renderPoints () {
     const points = [];
     for (let i = 0; i < slides; i++) {
       const point_class = i === current ? 'slider__point slider__point_active' : 'slider__point';
-      points.push(<button key={'point_' + i} className={point_class} onClick={() => setSection(i)} />);
+      points.push(<PointButton key={'point_' + i} className={point_class} onClick={() => setSection(i)} />);
     }
 
     return points;
@@ -39,6 +46,7 @@ const Slider: React.FC<SliderTypes> = ({ slides, current, setSection }) => {
       <div className="slider__queues">
         <div
           className="slider__queues__switcher"
+          // TODO: translate value "48" should be dynamic
           style={{ transform: `translateY(-${(slides - (current + 1)) * 48}px)` }}>
           {renderSwitchers()}
         </div>

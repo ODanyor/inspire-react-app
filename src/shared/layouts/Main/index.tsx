@@ -1,6 +1,5 @@
 import React from 'react';
 import { useHandleValue } from 'shared/hooks';
-
 import { CursorProvider } from 'shared/providers';
 import { Link, Menu } from 'shared/components';
 
@@ -14,21 +13,15 @@ const WithInterface: React.FC = ({ children }) => {
     menuIsOpen.setValue(!menuIsOpen.controls.value);
   }
 
-  function closeMenu() {
+  function onClose() {
     menuIsOpen.setValue(false);
   }
   
   const stick_class = `interface__button__stick${menuIsOpen.controls.value ? '_open' : ''}`;
 
   return (
-<<<<<<< HEAD:src/shared/layouts/Main/index.tsx
     <CursorProvider>
       <Menu isOpen={menuIsOpen.controls.value} onClose={onClose} />
-=======
-    <React.Fragment>
-      <Cursor position={cursorPosition.controls.value} />
-      <Menu isOpen={menuIsOpen.controls.value} onClose={closeMenu} />
->>>>>>> d00cee805689a290ee2f36813e017bd0b68b6d68:src/shared/layouts/WithInterface/index.tsx
 
       <div className='interface interface__header'>
         <Link to='/'>

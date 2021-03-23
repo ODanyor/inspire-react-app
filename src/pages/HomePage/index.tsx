@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { useImageLoad, useHandleValue } from 'shared/hooks';
 import { SectionProps, SectionsProps } from 'shared/interfaces';
+import { Slider } from 'shared/components';
 
 import Section1 from './Section-1';
 import Section2 from './Section-2';
 import Section3 from './Section-3';
-
-import { Slider } from 'shared/components';
 
 import styles from './home.module.sass';
 import bgHigh from 'shared/assets/images/background-high.jpg';

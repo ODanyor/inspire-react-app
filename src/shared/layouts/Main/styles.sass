@@ -22,7 +22,8 @@
     @include custom-button
     @include flex-beetwen
     flex-direction: column
-    height: 14px
+    height: 24px
+    padding: 5px;
 
     &__stick
       position: relative;
@@ -35,7 +36,7 @@
         @extend .interface__button__stick
 
         &:first-child
-          transform: rotate(45deg) translate(4px, 2px)
+          transform: rotate(45deg) translate(3px, 3px)
 
         &:last-child
-          transform: rotate(-45deg) translate(4px, -2px)
+          transform: rotate(-45deg) translate(3px, -3px)

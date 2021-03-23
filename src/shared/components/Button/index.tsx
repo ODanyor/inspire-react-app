@@ -1,5 +1,5 @@
 import React, { ReactChild } from 'react';
-import { WithCursor } from 'shared/hocs';
+import { WithCursorContext } from 'shared/hocs';
 
 interface ButtonProps {
   context: any;

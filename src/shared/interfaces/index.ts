@@ -1,3 +1,5 @@
+import { Ref } from 'react';
+
 export interface SectionProps {
   setSection: (event: number) => void;
 }
@@ -43,5 +45,6 @@ export interface Position {
 }
 
 export interface CursorProps {
-  position: Position
+  ref: Ref<HTMLDivElement>;
+  cursor: boolean | string;
 }

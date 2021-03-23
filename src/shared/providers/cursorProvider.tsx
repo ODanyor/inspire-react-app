@@ -1,23 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useHandleValue } from 'shared/hooks';
-import { Position } from 'shared/interfaces';
 import { Cursor } from 'shared/components';
+import { CursorContext } from 'shared/utils';
 
-export const CursorContext = React.createContext<any>('cursorContenxt');
-
-const SUPPORTED_CORSORS = [false, 'pointer'];
+const SUPPORTED_CURSORS = [false, 'pointer'];
 
 const CursorProvider: React.FC = ({ children }) => {
-  const mousePosition = useHandleValue<Position>({ x: 0, y: 0 });
+  const cursorRef = useRef<HTMLDivElement>(null);
   const cursor = useHandleValue<boolean | string>(false);
 
   function onMouseMove(event: MouseEventInit) {
     const { clientX: x, clientY: y } = event;
-    mousePosition.setValue({ x, y });
+    cursorRef.current!.style.transform = `translate(${x}px, ${y}px)`;
   }
 
   function onCursor(cursorType: boolean | string) {
-    cursorType = SUPPORTED_CORSORS.includes(cursorType) && cursorType;
+    cursorType = SUPPORTED_CURSORS.includes(cursorType) && cursorType;
     cursor.setValue(cursorType);
   }
 
@@ -28,7 +26,7 @@ const CursorProvider: React.FC = ({ children }) => {
 
   return (
     <CursorContext.Provider value={{ onCursor }}>
-      <Cursor position={mousePosition.controls.value} />
+      <Cursor ref={cursorRef} cursor={cursor.controls.value} />
       {children}
     </CursorContext.Provider>
   );

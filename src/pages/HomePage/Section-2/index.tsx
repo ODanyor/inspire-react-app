@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import { WithSection } from 'shared/hocs';
 import { useHandleValue } from 'shared/hooks';
-import { cards } from 'shared/assets/context';
 import { CardProps, CardInterface, SectionProps } from 'shared/interfaces';
+import { cards } from 'shared/assets/context';
 import './styles.sass';
 
 const Card: React.FC<CardProps> = ({ item, activeCard, setActive }) => {

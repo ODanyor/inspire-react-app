@@ -1,7 +1,7 @@
 export const menuItems = [
   { to: '/', placeholder: 'Home' },
   { to: '/about', placeholder: 'About' },
-  { to: '/contact', placeholder: 'Contact' },
+  { to: '/contact', placeholder: 'Contact' }
 ];
 
 export const cards = [
