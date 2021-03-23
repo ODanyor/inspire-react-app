@@ -1,4 +1,4 @@
-export const menu_items = [
+export const menuItems = [
   { to: '/', placeholder: 'Home' },
   { to: '/about', placeholder: 'About' },
   { to: '/contact', placeholder: 'Contact' },
