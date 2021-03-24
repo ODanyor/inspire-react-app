@@ -3,7 +3,6 @@ import { Button } from 'shared/components';
 import { HandleProps } from 'shared/interfaces';
 import './styles.sass';
 
-// TODO: intialize type
 interface HamburgerProps {
   isActive: HandleProps<boolean>;
 }

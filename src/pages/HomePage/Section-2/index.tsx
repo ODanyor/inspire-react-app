@@ -12,17 +12,14 @@ const Card: React.FC<CardProps> = ({ item, activeCard, setActive }) => {
   const item_class = isActive ? 'card__body card__body_active' : 'card__body';
 
   useEffect(() => {
-    if (cardBgRef) {
-      cardBgRef.current!.style.transform = isActive ?
-        `translateY(0)` : `translateY(100%)`;
-    }
+    cardBgRef.current!.style.transform = isActive ? `translateY(0)` : `translateY(100%)`;
   }, [cardBgRef, isActive]);
 
   return (
     <Button className={item_class} onClick={() => setActive(item)}>
       <div className='card__body__title'>{item.body.title}</div>
       <div className='card__body__content'>{item.body.content}</div>
-      <div className="card__body__background" ref={cardBgRef}></div>
+      <div className='card__body__background' ref={cardBgRef}></div>
     </Button>
   );
 }
@@ -48,7 +45,7 @@ const Section2: React.FC<SectionProps> = ({ setSection }) => {
         ))}
       </div>
 
-      <div className="card__button">
+      <div className='card__button'>
         <Button onClick={() => setSection(2)}>Got it</Button>
       </div>
     </div>

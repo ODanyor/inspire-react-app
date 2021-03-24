@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'shared/components';
-import { menuItems } from 'shared/assets/context';
+import { menu_items } from 'shared/assets/context';
 import { MenuProps, MenuLinkProps } from 'shared/interfaces';
 import './styles.sass';
 
@@ -11,7 +11,7 @@ const MenuLink: React.FC<MenuLinkProps> = ({ placeholder, ...rest }) => (
 const Menu: React.FC<MenuProps> = ({ isOpen, ...rest }) => (
   <div className={isOpen ? 'menu menu_open' : 'menu'}>
     <ul className='menu__list'>
-      {menuItems.map((item, index) => <MenuLink key={index} {...item} {...rest} />)}
+      {menu_items.map((item, index) => <MenuLink key={index} {...item} {...rest} />)}
     </ul>
   </div>
 );

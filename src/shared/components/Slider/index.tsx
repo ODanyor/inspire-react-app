@@ -44,10 +44,10 @@ const Slider: React.FC<SliderProps> = ({ slides, current, setSection }) => {
         {renderPoints()}
         <div className='slider__stick'></div>
       </div>
-      <div className="slider__queues">
+      <div className='slider__queues'>
         <div
-          className="slider__queues__switcher"
-          // TODO: translate value "48" should be dynamic
+          className='slider__queues__switcher'
+          // TODO: translate value '48' should be dynamic
           style={{ transform: `translateY(-${(slides - (current + 1)) * 48}px)` }}>
           {renderSwitchers()}
         </div>
