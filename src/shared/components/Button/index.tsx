@@ -1,22 +1,14 @@
 import React, { ReactChild } from 'react';
-import { CursorContextProps } from 'shared/interfaces';
-import { WithCursorContext } from 'shared/hocs';
-import { SUPPORTED_CURSORS } from 'shared/constants';
+import { WithCursorPointer } from 'shared/hocs';
 
 interface ButtonProps {
   className: string;
   children: ReactChild;
-  cursorstate: CursorContextProps;
   onClick: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, cursorstate, ...rest }) => (
-  <button
-    {...rest}
-    onMouseEnter={() => cursorstate.onCursor!(SUPPORTED_CURSORS[1])}
-    onMouseLeave={cursorstate.onCursor}>
-    {children}
-  </button>
+const Button: React.FC<ButtonProps> = ({ children, ...rest }) => (
+  <button {...rest}>{children}</button>
 );
 
-export default WithCursorContext(Button);
+export default WithCursorPointer(Button);

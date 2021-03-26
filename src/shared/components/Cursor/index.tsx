@@ -1,19 +1,25 @@
-import React, { forwardRef, Ref } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { CursorProps } from 'shared/interfaces';
-import { SUPPORTED_CURSORS } from 'shared/constants';
 import './styles.sass';
 
-const Cursor: React.FC<CursorProps> = forwardRef(({ cursor }, ref: Ref<HTMLDivElement>) => {
+const Cursor: React.FC<CursorProps> = ({ cursor }) => {
+  const cursorRef = useRef<HTMLDivElement>(null);
+
   let cursorClass = 'cursor';
-  switch(cursor) {
-    case SUPPORTED_CURSORS[1]:
-      cursorClass = 'cursor cursor_pointer';
-      break;
-    default:
-      cursorClass = 'cursor';
+  if (cursor) cursorClass = `cursor cursor_${cursor}`;
+  else cursorClass = 'cursor';
+
+  function onCursorMove(event: MouseEventInit) {
+    const { clientX: x, clientY: y } = event;
+    cursorRef.current!.style.transform = `translate(${x}px, ${y}px)`;
   }
-      
-  return <div className={cursorClass} ref={ref}></div>;
-});
+
+  useEffect(() => {
+    window.addEventListener('mousemove', onCursorMove)
+    return () => window.removeEventListener('mousemove', onCursorMove);
+  }, []); // eslint-disable-line
+
+  return <div className={cursorClass} ref={cursorRef} />;
+}
 
 export default Cursor;

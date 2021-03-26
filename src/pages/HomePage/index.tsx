@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, forwardRef } from 'react';
 import { useImageLoad, useHandleValue } from 'shared/hooks';
 import { SectionProps, SectionsProps } from 'shared/interfaces';
 import { Slider } from 'shared/components';
@@ -14,14 +14,14 @@ import bgLow from 'shared/assets/images/background-low.jpg';
 // Extendable with new sections wrapped via HOC Section
 const sections = [Section1, Section2, Section3];
 
-const Sections: React.FC<SectionsProps> = React.forwardRef(({ sections, ...rest }, ref) => (
+const Sections: React.FC<SectionsProps> = forwardRef(({ sections, ...rest }, ref) => (
   <div className={styles.sections} ref={ref}>
     {sections.map((Section: React.FC<SectionProps>, index: number) => <Section key={index} {...rest} />)}
   </div>
 ));
 
 const HomePage: React.FC = () => {
-  const section = useHandleValue(0);
+  const section = useHandleValue<number>(0);
   const pageContainerRef = useRef<HTMLDivElement>(null);
   const backgroundImgRef = useRef<HTMLImageElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);

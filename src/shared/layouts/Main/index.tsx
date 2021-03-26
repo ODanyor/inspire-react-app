@@ -3,8 +3,8 @@ import { useHandleValue } from 'shared/hooks';
 import { CursorProvider } from 'shared/providers';
 import { Link, Menu, Hamburger } from 'shared/components';
 
-import './styles.sass';
 import logo from 'shared/assets/logo.svg';
+import './styles.sass';
 
 const WithInterface: React.FC = ({ children }) => {
   const menuIsOpen = useHandleValue<boolean>(false);

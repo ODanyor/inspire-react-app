@@ -1,4 +1,4 @@
-import { Ref, ChangeEvent } from 'react';
+import { ChangeEvent } from 'react';
 
 export interface HandleProps<T> {
   controls: {
@@ -57,7 +57,6 @@ export interface Position {
 }
 
 export interface CursorProps {
-  ref: Ref<HTMLDivElement>;
   cursor: boolean | string;
 }
 
