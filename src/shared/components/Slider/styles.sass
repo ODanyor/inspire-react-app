@@ -1,4 +1,4 @@
-@import '../../assets/styles/mixins'
+@import '../../assets/styles/abstracts/mixins'
 
 .slider
   position: fixed
@@ -47,11 +47,11 @@
     height: 48px
     overflow: hidden
     
-    &__switcher
-      display: flex
-      align-items: center
-      flex-direction: column
-      transition: transform 1s ease
+  &-switcher
+    display: flex
+    align-items: center
+    flex-direction: column
+    transition: transform 1s ease
 
   &__queue
     user-select: none
