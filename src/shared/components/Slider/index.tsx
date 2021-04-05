@@ -45,7 +45,7 @@ const Slider: React.FC<SliderProps> = ({ slides, current, setSection }) => {
       </div>
       <div className='slider__queues'>
         <div
-          className='slider__queues-switcher'
+          className='slider-switcher'
           // TODO: translate value '48' should be dynamic
           style={{ transform: `translateY(-${(slides - (current + 1)) * 48}px)` }}>
           {renderSwitchers()}
