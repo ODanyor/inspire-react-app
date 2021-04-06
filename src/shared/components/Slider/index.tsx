@@ -6,7 +6,6 @@ import './styles.sass';
 interface SliderProps extends SectionProps {
   slides: number;
   current: number;
-  setSection: (index: number) => void;
 }
 
 interface PointButtonProps {
@@ -17,7 +16,7 @@ interface PointButtonProps {
 const PointButton: React.FC<PointButtonProps> = (props) => <Button {...props}><div /></Button>;
 
 const Slider: React.FC<SliderProps> = ({ slides, current, setSection }) => {
-  function renderPoints () {
+  function renderPoints() {
     const points = [];
     for (let i = 0; i < slides; i++) {
       const point_class = i === current ? 'slider__point slider__point_active' : 'slider__point';
@@ -27,7 +26,7 @@ const Slider: React.FC<SliderProps> = ({ slides, current, setSection }) => {
     return points;
   }
 
-  function renderSwitchers () {
+  function renderSwitchers() {
     const switchers = [];
     while (slides--) {
       const index = slides + 1;
@@ -46,7 +45,7 @@ const Slider: React.FC<SliderProps> = ({ slides, current, setSection }) => {
       </div>
       <div className='slider__queues'>
         <div
-          className='slider__queues__switcher'
+          className='slider-switcher'
           // TODO: translate value '48' should be dynamic
           style={{ transform: `translateY(-${(slides - (current + 1)) * 48}px)` }}>
           {renderSwitchers()}

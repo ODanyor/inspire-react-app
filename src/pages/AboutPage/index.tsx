@@ -1,14 +1,14 @@
 import React, { useRef } from 'react';
 import { about_content } from 'shared/assets/context';
 import landscape from 'shared/assets/images/landscapeAnimated.mp4';
-import styles from './about.module.sass';
+import './about.sass';
 
 interface BackgroundVideoProps {
   onEnded: () => void;
 }
 
 const BackgroundVideo: React.FC<BackgroundVideoProps> = (props) => (
-  <div className={styles.main__video}>
+  <div className="main-page__video">
     <video
       muted
       autoPlay
@@ -26,7 +26,7 @@ const AboutPage: React.FC = () => {
 
   function onVideoEnds() {
     const explosureDiv = document.createElement('div');
-    explosureDiv.className = styles.main__explosure;
+    explosureDiv.className ="main-page__explosure"
 
     contentRef.current!.style.top = '50%';
     contentRef.current!.style.transform = 'translateY(-50%)';
@@ -37,12 +37,12 @@ const AboutPage: React.FC = () => {
   }
 
   return (
-    <div className={styles.main}>
+    <div className="main-page">
       <BackgroundVideo onEnded={onVideoEnds} />
-      <div className={styles.main__spread}>
-        <div className={styles.main__content} ref={contentRef}>
-          <div className={styles.main__title} ref={titleRef}>ABOUT</div>
-          <div className={styles.main__context}>{about_content}</div>
+      <div className="main-page__spread">
+        <div className="main-page__content" ref={contentRef}>
+          <div className="main-page__title" ref={titleRef}>ABOUT</div>
+          <div className="main-page__context">{about_content}</div>
         </div>
       </div>
     </div>

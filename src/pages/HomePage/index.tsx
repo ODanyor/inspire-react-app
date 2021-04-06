@@ -7,7 +7,7 @@ import Section1 from './Section-1';
 import Section2 from './Section-2';
 import Section3 from './Section-3';
 
-import styles from './home.module.sass';
+import './home.sass';
 import bgHigh from 'shared/assets/images/background-high.jpg';
 import bgLow from 'shared/assets/images/background-low.jpg';
 
@@ -15,7 +15,7 @@ import bgLow from 'shared/assets/images/background-low.jpg';
 const sections = [Section1, Section2, Section3];
 
 const Sections: React.FC<SectionsProps> = forwardRef(({ sections, ...rest }, ref) => (
-  <div className={styles.sections} ref={ref}>
+  <div className="sections" ref={ref}>
     {sections.map((Section: React.FC<SectionProps>, index: number) => <Section key={index} {...rest} />)}
   </div>
 ));
@@ -35,11 +35,11 @@ const HomePage: React.FC = () => {
   }, [section.controls.value]);
 
   return (
-    <div className={styles.main} ref={pageContainerRef}>
+    <div className="home-page" ref={pageContainerRef}>
       <img
         alt='bg'
         src={bg.current}
-        className={styles.main__background}
+        className="home-page__background"
         ref={backgroundImgRef} />
       <Sections sections={sections} ref={sectionRef} setSection={section.setValue} />
       <Slider slides={sections.length} current={section.controls.value} setSection={section.setValue} />

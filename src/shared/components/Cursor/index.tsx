@@ -15,7 +15,7 @@ const Cursor: React.FC<CursorProps> = ({ cursor }) => {
   }
 
   useEffect(() => {
-    window.addEventListener('mousemove', onCursorMove)
+    window.addEventListener('mousemove', onCursorMove);
     return () => window.removeEventListener('mousemove', onCursorMove);
   }, []); // eslint-disable-line
 

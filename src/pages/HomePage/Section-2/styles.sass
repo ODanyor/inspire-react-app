@@ -1,68 +1,36 @@
-@import '../../../shared/assets/styles/mixins'
-@import '../../../shared/assets/styles/variables'
+@import '../../../shared/assets/styles/abstracts/mixins'
+@import '../../../shared/assets/styles/abstracts/variables'
 
-.card
-  &__button
-    margin-top: 4rem
-    display: flex
-    justify-content: center
-
-    button
-      @include custom-button
-      font-size: 36px
-      color: $white
-      text-decoration: underline
-
-  &__container
-    max-width: 750px
-    margin: 0 auto
-    margin-top: 7rem
-
-  &__list
-    @include flex-beetwen
+.card-container
+  max-width: 750px
+  margin: 0 auto
+  margin-top: 7rem
 
   &__header
     @include flex-beetwen
     align-items: flex-start
     min-height: 200px
 
-    &__title
-      font-size: 52px
-      font-weight: 100
-      color: $orange
+  &__title
+    font-size: 52px
+    font-weight: 100
+    color: $orange
 
-    &__content
-      color: $white
-      min-width: 300px
-      max-width: 300px
-
-  &__body
-    @include custom-button
-    position: relative
-    overflow: hidden
-    width: 100%
-    min-height: 250px
+  &__content
     color: $white
-    padding: 1rem
-    background-color: #26312ac0
-    transition: filter 0.3s ease
-    text-align: initial
-    transition: all 0.3s ease
+    min-width: 300px
+    max-width: 300px
 
-    &_active
-      transform: scale(1.1) rotate(5deg)
-      z-index: 100
+.card-list
+  @include flex-beetwen
 
-    &__title
-      font-size: 36px
-      margin: 1rem 0
+.link-button
+  margin-top: 4rem
+  display: flex
+  justify-content: center
 
-    &__background
-      position: absolute
-      z-index: -100
-      top: 0
-      left: 0
-      width: 100%
-      height: 100%
-      background-color: $orange
-      transition: transform 0.3s ease
+  button
+    @include custom-button
+    font-size: 36px
+    color: $white
+    text-decoration: underline
