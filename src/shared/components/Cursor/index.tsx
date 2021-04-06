@@ -5,7 +5,7 @@ import './styles.sass';
 const Cursor: React.FC<CursorProps> = ({ cursor }) => {
   const cursorRef = useRef<HTMLDivElement>(null);
 
-  let cursorClass = 'cursor';
+  let cursorClass;
   if (cursor) cursorClass = `cursor cursor_${cursor}`;
   else cursorClass = 'cursor';
 

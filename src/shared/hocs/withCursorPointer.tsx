@@ -16,7 +16,8 @@ export default function WithCursorHover(WrappedComponent: React.FC<any>) {
             {...props}
             onMouseEnter={cursorToPointer}
             onMouseLeave={cursorToAuto}
-            onMouseDown={cursorToActive} />
+            onMouseDown={cursorToActive}
+            onMouseUp={cursorToPointer} />
         );
       }}
     </CursorContext.Consumer>

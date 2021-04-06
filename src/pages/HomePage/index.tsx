@@ -11,7 +11,7 @@ import styles from './home.module.sass';
 import bgHigh from 'shared/assets/images/background-high.jpg';
 import bgLow from 'shared/assets/images/background-low.jpg';
 
-// Extendable with new sections wrapped via HOC Section
+// NOTE: Extendable with new sections wrapped via HOC Section
 const sections = [Section1, Section2, Section3];
 
 const Sections: React.FC<SectionsProps> = forwardRef(({ sections, ...rest }, ref) => (
